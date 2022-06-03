@@ -1,18 +1,25 @@
+import { MantineProvider } from '@mantine/core';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+const App = (props: AppProps) => {
+  const { Component, pageProps } = props;
+
   return (
     <>
       <Head>
-        <title>Welcome to site!</title>
+        <title>Sophia Elementaris</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
       </Head>
-      <main className="app">
+
+      <MantineProvider withGlobalStyles withNormalizeCSS>
         <Component {...pageProps} />
-      </main>
+      </MantineProvider>
     </>
   );
-}
+};
 
-export default CustomApp;
+export default App;
